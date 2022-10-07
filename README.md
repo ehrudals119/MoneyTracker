@@ -1,15 +1,10 @@
 # MoneyTracker
 OSU Hackathon Fall 2023 - Fantastic4
 
-How to Install Django
-
-1. python3 install pip
-2. python3 -m pip install django
-
 How to Run Django 
 
   A. Create Superuser for yourself
-  
+    1. cd into backend "cd backend"
     1. python manage.py createsuperuser
     2. Enter ID, Email, Password (Not shown in the terminal)
     
