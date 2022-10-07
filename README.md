@@ -16,7 +16,7 @@ How to Run Django
   B. Run Django
   
     1. python manage.py runserver
-    2. Open up http://127.0.0.1:8000/ on your browser
+    2. Open up http://127.0.0.1:8000/ (default url) on your browser
     3. http://127.0.0.1:8000/admin to access admin server
     4. Enter your superuser ID and PW
     
