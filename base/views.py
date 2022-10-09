@@ -1,8 +1,10 @@
 from django.shortcuts import render
-from django.http import JsonResponse
-from .sample import expenses
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
+
+from .models import Expense
+from .serializers import ExpenseSerializer
+
 
 # Create your views here.
 
@@ -24,13 +26,23 @@ def getRoutes(request):
 
 @api_view(['GET'])
 def getExpenses(request):
-    return Response(expenses)
+    expenses = Expense.objects.all()
+    serializer = ExpenseSerializer(expenses, many=True)
+    return Response(serializer.data)
 
 @api_view(['GET'])
 def getExpense(request, pk):
-    expense = None
-    for exp in expenses:
-        if exp['_id'] == pk:
-            expense = exp
-    return Response(expense)
+    expense = Expense.objects.get(_id=pk)
+    serializer = ExpenseSerializer(expense, many=False)
+    return Response(serializer.data)
 
+@api_view(['POST'])
+def createExpense(request):
+
+    expense = Expense.objects.create(
+        category='',
+        amount=0
+    )
+
+    serializer = ExpenseSerializer(expense, many=False)
+    return Response(serializer.data)

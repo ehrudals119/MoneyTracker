@@ -12,7 +12,7 @@ function AddExpensePage() {
 
     const addExpense = async () => {
         const newExpense = {category, amount};
-        const response = await fetch('/expenses', {
+        const response = await fetch("http://127.0.0.1:8000/api/expenses/create/", {
             method: 'POST',
             body: JSON.stringify(newExpense),
             headers: {'Content-type':'application/json'}
